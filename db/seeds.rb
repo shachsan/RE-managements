@@ -18,4 +18,4 @@ Lease.create!(start_date: DateTime.new(2018,12,6), exp_date: DateTime.new(2020,1
 Apartment.create(unit_no: "4A", size: 1000, bedrooms: 2, rent: 1500.50, electricity: false, water: true, gas: true, lease_id: 1, building_id: 1, agent_id: 1)
 
 Apartment.create(unit_no: "7C", size: 1000, bedrooms: 3, rent: 1500.50, electricity: false, water: true, gas: true, lease_id: 2, building_id: 1, agent_id: 2)
-puts "Done!"
+puts "Done!!"
