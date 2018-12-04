@@ -1,0 +1,145 @@
+  [1m[36mAgent Load (1.3ms)[0m  [1m[34mSELECT  "agents".* FROM "agents" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mBuilding Load (0.7ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ /Users/sanjaysai/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/sanjaysai/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ /Users/sanjaysai/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/sanjaysai/.rvm/gems/ruby-2.3.3/bin/rake:23
+Migrating to CreateBuildings (20181203185539)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/sanjaysai/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "buildings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "address" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181203185539_create_buildings.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181203185539"]]
+  ↳ /Users/sanjaysai/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/sanjaysai/.rvm/gems/ruby-2.3.3/bin/rake:23
+Migrating to CreateAgents (20181203185617)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/sanjaysai/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "agents" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181203185617_create_agents.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181203185617"]]
+  ↳ /Users/sanjaysai/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/sanjaysai/.rvm/gems/ruby-2.3.3/bin/rake:23
+Migrating to CreateApartments (20181203190059)
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/sanjaysai/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "apartments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "unit_no" varchar, "size" integer, "bedrooms" integer, "rent" float, "electricity" boolean, "water" boolean, "gas" boolean, "lease_id" integer, "building_id" integer, "agent_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_b7518e03b7"
+FOREIGN KEY ("lease_id")
+  REFERENCES "leases" ("id")
+, CONSTRAINT "fk_rails_9c46e85795"
+FOREIGN KEY ("building_id")
+  REFERENCES "buildings" ("id")
+, CONSTRAINT "fk_rails_9709f48205"
+FOREIGN KEY ("agent_id")
+  REFERENCES "agents" ("id")
+)[0m
+  ↳ db/migrate/20181203190059_create_apartments.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_apartments_on_lease_id" ON "apartments" ("lease_id")[0m
+  ↳ db/migrate/20181203190059_create_apartments.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_apartments_on_building_id" ON "apartments" ("building_id")[0m
+  ↳ db/migrate/20181203190059_create_apartments.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_apartments_on_agent_id" ON "apartments" ("agent_id")[0m
+  ↳ db/migrate/20181203190059_create_apartments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181203190059"]]
+  ↳ /Users/sanjaysai/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/sanjaysai/.rvm/gems/ruby-2.3.3/bin/rake:23
+Migrating to CreateLeases (20181203213909)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/sanjaysai/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "leases" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "start_date" datetime, "exp_date" datetime, "tenant_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181203213909_create_leases.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181203213909"]]
+  ↳ /Users/sanjaysai/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/sanjaysai/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/sanjaysai/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/sanjaysai/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-12-04 13:50:29.431102"], ["updated_at", "2018-12-04 13:50:29.431102"]]
+  ↳ /Users/sanjaysai/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/sanjaysai/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/sanjaysai/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[36mAgent Load (0.6ms)[0m  [1m[34mSELECT  "agents".* FROM "agents" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mApartment Load (0.7ms)[0m  [1m[34mSELECT  "apartments".* FROM "apartments" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/sanjaysai/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:8
+  [1m[36mAgent Create (0.5ms)[0m  [1m[32mINSERT INTO "agents" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Sanjay"], ["created_at", "2018-12-04 13:51:20.398925"], ["updated_at", "2018-12-04 13:51:20.398925"]]
+  ↳ db/seeds.rb:8
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[36mAgent Create (0.4ms)[0m  [1m[32mINSERT INTO "agents" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Terrance"], ["created_at", "2018-12-04 13:51:20.402434"], ["updated_at", "2018-12-04 13:51:20.402434"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mBuilding Create (0.4ms)[0m  [1m[32mINSERT INTO "buildings" ("name", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "access labs"], ["address", "81 Prospect, Brooklyn, NY"], ["created_at", "2018-12-04 13:51:20.415735"], ["updated_at", "2018-12-04 13:51:20.415735"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[36mLease Create (0.8ms)[0m  [1m[32mINSERT INTO "leases" ("start_date", "exp_date", "tenant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["start_date", "2018-12-03 00:00:00"], ["exp_date", "2019-12-03 00:00:00"], ["tenant_name", "Carlo"], ["created_at", "2018-12-04 13:51:20.435934"], ["updated_at", "2018-12-04 13:51:20.435934"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mLease Create (0.6ms)[0m  [1m[32mINSERT INTO "leases" ("start_date", "exp_date", "tenant_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["start_date", "2018-12-06 00:00:00"], ["exp_date", "2020-12-06 00:00:00"], ["tenant_name", "Rob"], ["created_at", "2018-12-04 13:51:20.442199"], ["updated_at", "2018-12-04 13:51:20.442199"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mBuilding Load (0.3ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:18
+  [1m[36mAgent Load (0.1ms)[0m  [1m[34mSELECT  "agents".* FROM "agents" WHERE "agents"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:18
+  [1m[36mLease Load (0.1ms)[0m  [1m[34mSELECT  "leases".* FROM "leases" WHERE "leases"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:18
+  [1m[36mApartment Create (0.9ms)[0m  [1m[32mINSERT INTO "apartments" ("unit_no", "size", "bedrooms", "rent", "electricity", "water", "gas", "lease_id", "building_id", "agent_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["unit_no", "4A"], ["size", 1000], ["bedrooms", 2], ["rent", 1500.5], ["electricity", 0], ["water", 1], ["gas", 1], ["lease_id", 1], ["building_id", 1], ["agent_id", 1], ["created_at", "2018-12-04 13:51:20.522617"], ["updated_at", "2018-12-04 13:51:20.522617"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mBuilding Load (0.2ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" WHERE "buildings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mAgent Load (0.1ms)[0m  [1m[34mSELECT  "agents".* FROM "agents" WHERE "agents"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mLease Load (0.0ms)[0m  [1m[34mSELECT  "leases".* FROM "leases" WHERE "leases"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mApartment Create (0.5ms)[0m  [1m[32mINSERT INTO "apartments" ("unit_no", "size", "bedrooms", "rent", "electricity", "water", "gas", "lease_id", "building_id", "agent_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["unit_no", "7C"], ["size", 1000], ["bedrooms", 3], ["rent", 1500.5], ["electricity", 0], ["water", 1], ["gas", 1], ["lease_id", 2], ["building_id", 1], ["agent_id", 2], ["created_at", "2018-12-04 13:51:20.528940"], ["updated_at", "2018-12-04 13:51:20.528940"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mAgent Load (0.6ms)[0m  [1m[34mSELECT  "agents".* FROM "agents" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mApartment Load (0.2ms)[0m  [1m[34mSELECT  "apartments".* FROM "apartments" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mAgent Load (0.3ms)[0m  [1m[34mSELECT  "agents".* FROM "agents" ORDER BY "agents"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApartment Load (0.3ms)[0m  [1m[34mSELECT  "apartments".* FROM "apartments" WHERE "apartments"."agent_id" = ? LIMIT ?[0m  [["agent_id", 1], ["LIMIT", 11]]
+  [1m[36mAgent Load (0.9ms)[0m  [1m[34mSELECT  "agents".* FROM "agents" ORDER BY "agents"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mBuilding Load (0.3ms)[0m  [1m[34mSELECT  "buildings".* FROM "buildings" INNER JOIN "apartments" ON "buildings"."id" = "apartments"."building_id" WHERE "apartments"."agent_id" = ? LIMIT ?[0m  [["agent_id", 1], ["LIMIT", 11]]
+  [1m[36mAgent Load (0.2ms)[0m  [1m[34mSELECT  "agents".* FROM "agents" ORDER BY "agents"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mAgent Load (0.3ms)[0m  [1m[34mSELECT  "agents".* FROM "agents" ORDER BY "agents"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mAgent Load (0.2ms)[0m  [1m[34mSELECT  "agents".* FROM "agents" ORDER BY "agents"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApartment Load (0.2ms)[0m  [1m[34mSELECT  "apartments".* FROM "apartments" WHERE "apartments"."agent_id" = ? LIMIT ?[0m  [["agent_id", 2], ["LIMIT", 11]]
+  [1m[36mLease Load (0.3ms)[0m  [1m[34mSELECT  "leases".* FROM "leases" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mApartment Load (0.3ms)[0m  [1m[34mSELECT  "apartments".* FROM "apartments" ORDER BY "apartments"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mLease Load (0.3ms)[0m  [1m[34mSELECT  "leases".* FROM "leases" WHERE "leases"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mLease Load (0.3ms)[0m  [1m[34mSELECT  "leases".* FROM "leases" ORDER BY "leases"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApartment Load (0.7ms)[0m  [1m[34mSELECT  "apartments".* FROM "apartments" WHERE "apartments"."lease_id" = ? LIMIT ?[0m  [["lease_id", 1], ["LIMIT", 1]]
+  [1m[36mImage Load (0.8ms)[0m  [1m[34mSELECT  "images".* FROM "images" LIMIT ?[0m  [["LIMIT", 11]]
