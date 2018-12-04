@@ -1,0 +1,9 @@
+<%= form_for @lease do |t| %>
+  <%= t.label "Select a start date for the new lease." %><br>
+  <%= t.date_select(:start_date) %><br>
+  <%= t.label "Select an end date for the new lease." %><br>
+  <%= t.date_select(:exp_date) %><br>
+  <%= t.label "Name of tenant" %><br>
+  <%= t.text_field :tenant_name %>
+  <%= t.submit %>
+<% end %>
