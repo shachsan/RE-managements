@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_date: 
+  exp_date: 
+  tenant_name: MyString
+  apartment: one
+
+two:
+  start_date: 
+  exp_date: 
+  tenant_name: MyString
+  apartment: two
