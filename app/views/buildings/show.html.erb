@@ -1,0 +1,6 @@
+<h1><%= "#{@building.name}" %></h1>
+<h3><%= "#{@building.address}" %></h3>
+<button type="button" name="button">
+  <%= link_to "Edit", edit_building_path(@building) %>
+  <%= link_to "Back", building_path(@building) %>
+</button>
