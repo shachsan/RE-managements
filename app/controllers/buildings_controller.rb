@@ -5,14 +5,28 @@ class BuildingsController < ApplicationController
     @buildings = Building.all
   end
 
+  def new
+    @building = Building.new
+  end
+
   def show
 
   end
 
   def create
+    @building = Building.create(building_params)
+    if @building
+      redirect_to @building
+       flash[:success] = "Building successfully created!"
+    else
+      render 'new'
+    end
+
   end
 
   def destroy
+    @building.destroy
+    redirect_to buildings_path
   end
 
   def update
@@ -23,12 +37,6 @@ class BuildingsController < ApplicationController
       render 'edit'
     end
 
-  end
-
-  def edit
-  end
-
-  def new
   end
 
   private
