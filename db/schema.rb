@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_03_213909) do
+ActiveRecord::Schema.define(version: 2018_12_04_140256) do
 
   create_table "agents", force: :cascade do |t|
     t.string "name"
@@ -41,6 +41,16 @@ ActiveRecord::Schema.define(version: 2018_12_03_213909) do
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string "img_url"
+    t.integer "building_id"
+    t.integer "apartment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["apartment_id"], name: "index_images_on_apartment_id"
+    t.index ["building_id"], name: "index_images_on_building_id"
   end
 
   create_table "leases", force: :cascade do |t|
