@@ -1,0 +1,6 @@
+<h1>Your Leases</h1>
+<ul>
+<% @leases.each do |lease| %>
+  <li><%= link_to lease.tenant_name, lease %></li>
+<% end %>
+</ul>
