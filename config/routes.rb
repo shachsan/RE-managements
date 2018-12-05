@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :apartments, :leases, :buildings, :agents
+  resources :apartments, :leases, :buildings
+
+  get 'signup', to: 'agents#new'
+
+  resources :agents, except: [:new]
 
 end
