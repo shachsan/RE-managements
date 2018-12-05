@@ -1,4 +1,8 @@
+
+
 <%= form_for @apartment do |t|%>
+  <%= t.label :name %>
+  <%= t.text_field :name %><br>
   <%= t.label "Unit Number" %>
   <%= t.text_field :unit_no %><br>
   <%= t.label "Size (sqft)" %>
@@ -15,8 +19,6 @@
   <%= t.check_box :gas %><br>
   <%= t.label :Building %>
   <%= t.collection_select :building_id, @buildings, :id, :name %><br>
-  <%= t.label :Lease %>
-  <%= t.collection_select :lease_id, @leases, :id, :tenant_name %><br>
   <%= t.label :Agent %>
   <%= t.collection_select :agent_id, @agents, :id, :name %>
   <br>
