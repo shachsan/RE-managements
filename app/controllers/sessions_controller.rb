@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
 
   def create
     agent = Agent.find_by(email: params[:session][:email].downcase)
+
     if agent && agent.authenticate(params[:session][:password])
       session[:user_id] = agent.id
       flash[:success] = "You have successfully logged in"
