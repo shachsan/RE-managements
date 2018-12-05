@@ -19,8 +19,5 @@
   <%= t.check_box :gas %><br>
   <%= t.label :Building %>
   <%= t.collection_select :building_id, @buildings, :id, :name %><br>
-  <%= t.label :Agent %>
-  <%= t.collection_select :agent_id, @agents, :id, :name %>
-  <br>
   <%= t.submit %>
 <% end %>
