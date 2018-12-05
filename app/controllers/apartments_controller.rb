@@ -3,7 +3,6 @@ class ApartmentsController < ApplicationController
 
   def index
     @apartments = Apartment.all
-    @atrr = Apartment.attributes
   end
 
   def show
