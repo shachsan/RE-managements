@@ -1,0 +1,16 @@
+<h1>Apartment info</h1>
+<ul>
+  <li>Unit: <%= @apartment.unit_no %></li>
+  <li>Building Name: <%= @apartment.building.name %></li>
+  <li>Size: <%= @apartment.size %></li>
+  <li># of Bedrooms: <%= @apartment.bedrooms %></li>
+  <li>Rent/Month: <%= @apartment.rent %></li>
+  <li>Utilities: </li>
+  <ul>
+        <li>Electricity: <%= !!@apartment.electricity %></li>
+        <li>Gas: <%= !!@apartment.gas %></li>
+        <li>Water: <%= !!@apartment.water %></li>
+  </ul>
+</ul>
+<%= link_to "Edit Apartment", edit_apartment_path(@apartment) %>
+<%= link_to "Delete Apartment", "/apartments/#{@apartment.id}", method: :delete %>
