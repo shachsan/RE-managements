@@ -3,6 +3,7 @@ class ApartmentsController < ApplicationController
 
   def index
     @apartments = Apartment.all
+    @atrr = Apartment.attributes
   end
 
   def show
@@ -44,6 +45,6 @@ class ApartmentsController < ApplicationController
     end
 
     def apartment_params
-      params.require(:apartment).permit(:unit_no, :size, :bedrooms, :rent, :electricity, :water, :gas, :lease_id, :building_id, :agent_id)
+      params.require(:apartment).permit(:unit_no, :size, :bedrooms, :rent, :electricity, :water, :gas, :lease_id, :building_id, :agent_id, :search)
     end
 end
