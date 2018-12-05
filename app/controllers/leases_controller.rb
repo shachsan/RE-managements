@@ -10,6 +10,7 @@ class LeasesController < ApplicationController
 
   def new
     @lease = Lease.new
+    @apartments = Apartment.all
   end
 
   def create
@@ -18,7 +19,7 @@ class LeasesController < ApplicationController
   end
 
   def edit
-
+    @apartments = Apartment.all
   end
 
   def update
