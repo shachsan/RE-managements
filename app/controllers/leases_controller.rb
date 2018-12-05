@@ -1,5 +1,5 @@
 class LeasesController < ApplicationController
-  before_action :get_lease, only: [:show, :edit, :update, :delete]
+  before_action :get_lease, only: [:show, :edit, :update, :destroy]
   def index
     @leases = Lease.all
   end
@@ -9,7 +9,7 @@ class LeasesController < ApplicationController
   end
 
   def new
-    @leases = Lease.new
+    @lease = Lease.new
   end
 
   def create
@@ -26,7 +26,7 @@ class LeasesController < ApplicationController
     redirect_to @lease
   end
 
-  def delete
+  def destroy
     @lease.destroy
     redirect_to leases_path
   end
