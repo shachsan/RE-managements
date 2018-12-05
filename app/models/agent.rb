@@ -20,9 +20,9 @@ class Agent < ApplicationRecord
     hour = Time.now.hour
     if hour >= 0 && hour < 12
       return "morning"
-    elsif hour > 12 && hour < 16
+    elsif hour >= 12 && hour < 16
       return "afternoon"
-    elsif hour > 16 && hour < 25
+    elsif hour >=16 && hour < 25
       return "evening"
     end
   end
