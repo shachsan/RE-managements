@@ -9,6 +9,10 @@ class BuildingsController < ApplicationController
     @building = Building.new
   end
 
+  def edit
+
+  end
+
   def show
 
   end

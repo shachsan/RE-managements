@@ -1,3 +1,11 @@
 <%=flash[:success] %>
 <h1><%= "Good #{@agent.greeting}, #{@agent.name}"%></h1>
 <%= render 'layouts/navbar' %>
+
+<ul class="list-group">
+  <% @agent.apartments.each do |apt| %>
+
+      <li class="list-group-item"> <%= link_to apt.name, apt %> </li>
+
+  <% end %>
+</ul>
