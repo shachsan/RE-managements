@@ -16,7 +16,10 @@ class AgentsController < ApplicationController
   end
 
   def create
+
+    agent_params[:email]= agent_params[:email].downcase
     @agent = Agent.new(agent_params)
+    # byebug
     if @agent.save
       flash[:success]= "#{@agent.name}, welcome to RE-management!"
       redirect_to @agent
