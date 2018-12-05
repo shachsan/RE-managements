@@ -4,6 +4,8 @@
   <%= t.label "Select an end date for the new lease." %><br>
   <%= t.date_select(:exp_date) %><br>
   <%= t.label "Name of tenant" %><br>
-  <%= t.text_field :tenant_name %>
+  <%= t.text_field :tenant_name %><br>
+  <%= t.label "Select an apartment" %><br>
+  <%= t.collection_select :apartment_id, @apartments, :id, :name %><br>
   <%= t.submit %>
 <% end %>
