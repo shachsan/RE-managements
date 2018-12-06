@@ -17,10 +17,11 @@ class LeasesController < ApplicationController
   end
 
   def create
-    @lease = Lease.create(lease_params)
-    update_relationship
+    @lease = Lease.new(lease_params)
+    #byebug
     @lease.agent_id = current_agent.id
     @lease.save
+    update_relationship
     redirect_to @lease
   end
 
