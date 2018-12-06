@@ -13,7 +13,7 @@ class LeasesController < ApplicationController
 
   def new
     @lease = Lease.new
-    @apartments = current_agent.apartments
+    @apartments = current_agent.empty_apartments
   end
 
   def create

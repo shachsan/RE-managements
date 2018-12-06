@@ -1,9 +1,13 @@
 <h1>Apartments</h1>
 
-<ul>
-  <% @agent_apartments.each do |apartment| %>
-    <li><%= link_to apartment.name, apartment %></li>
-  <% end %>
-</ul>
+<% if !@apartment %>
+    <h4>You have no vacant apartments</h4>
+<% else %>
+  <ul>
+    <% @apartments.each do |apartment| %>
+      <li><%= link_to apartment.name, apartment %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <%= link_to 'New Apartment', new_apartment_path %>
