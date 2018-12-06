@@ -9,7 +9,9 @@
         <div class="card-header layout-center-text header-text"><%= apt.building.name%></div>
           <hr>
           <div class="card-body">
-          <h5 class="card-title layout-center-text"><%= "Apt #{apt.unit}" %></h5>
+          <h5 class="card-title layout-center-text"><%= "Apartment: #{apt.unit_no}"%></h5>
+          <h5 class="card-title layout-center-text"><%= "Bedroom: #{apt.bedrooms}"%></h5>
+
           <hr>
             <% if apt.lease_id %>
               <div class="card-text layout-center-text bg-success rent_status">Rented</div>
