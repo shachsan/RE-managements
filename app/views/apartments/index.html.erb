@@ -1,13 +1,13 @@
 <h1>Apartments</h1>
 
-<% if !@apartment %>
-    <h4>You have no vacant apartments</h4>
-<% else %>
-  <ul>
-    <% @apartments.each do |apartment| %>
+<% if @apartments %>
+    <ul>
+      <% @apartments.each do |apartment| %>
       <li><%= link_to apartment.name, apartment %></li>
-    <% end %>
-  </ul>
+      <% end %>
+    </ul>
+<% else %>
+    <h4>You have no apartments on this page</h4>
 <% end %>
 
-<%= link_to 'New Apartment', new_apartment_path %>
+<%= button_to "New Apartment", new_apartment_path, method: :get %>

@@ -5,7 +5,7 @@
       <li><%= link_to lease.tenant_name, lease %></li>
       <% end %>
     </ul>
-    <%= link_to "Add Lease", new_lease_path %>
+    <%= button_to "Add Lease", new_lease_path, method: :get %>
 <% else %>
     <h1>You currently have no leases.</h1>
 <% end %>
