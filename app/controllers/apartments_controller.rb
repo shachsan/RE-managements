@@ -6,7 +6,6 @@ class ApartmentsController < ApplicationController
     only_empty = params[:only_empty]
     if only_empty
       @apartments = current_agent.empty_apartments
-      #byebug
     else
       @apartments = current_agent.apartments
     end

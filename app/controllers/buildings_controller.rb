@@ -11,7 +11,6 @@ class BuildingsController < ApplicationController
   end
 
   def edit
-
   end
 
   def show
@@ -26,7 +25,6 @@ class BuildingsController < ApplicationController
     else
       render 'new'
     end
-
   end
 
   def destroy
@@ -41,7 +39,6 @@ class BuildingsController < ApplicationController
       flash[:error]
       render 'edit'
     end
-
   end
 
   private
