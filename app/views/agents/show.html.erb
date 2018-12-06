@@ -1,10 +1,18 @@
-<%=flash[:success] %>
+<span class="bg-success"><%=flash[:success]%></span>
 <h1><%= "Good #{@agent.greeting}, #{@agent.name}"%></h1>
 
-<ul class="list-group">
+
   <% @agent.apartments.each do |apt| %>
 
-      <li class="list-group-item"> <%= link_to apt.info, apt %> </li>
+      <div class="card-group">
+        <div class="card">
+          <img class="card-img-top" src="..." alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"><%= apt.info %></h5>
+            <p class="card-text"><%= "#{apt.bedrooms} Bedroom Apartment" %></p>
+            <%= link_to "Show details", apt %>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
 
   <% end %>
-</ul>
