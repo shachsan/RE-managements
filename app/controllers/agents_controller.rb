@@ -1,4 +1,5 @@
 class AgentsController < ApplicationController
+  before_action :authenticate
   before_action :find_agent, only: [:show, :update, :edit, :destroy]
 
   def new
