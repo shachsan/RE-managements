@@ -15,7 +15,7 @@ class BuildingsController < ApplicationController
   end
 
   def show
-
+    @apartments = @building.apartments.select{ |apartment| apartment.agent_id == current_agent.id}
   end
 
   def create
