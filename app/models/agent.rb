@@ -28,4 +28,8 @@ class Agent < ApplicationRecord
     end
   end
 
+  def empty_apartments
+    apartments.where(lease_id: nil)
+  end
+
 end

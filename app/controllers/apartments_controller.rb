@@ -1,9 +1,14 @@
 class ApartmentsController < ApplicationController
   before_action :set_apartment, only: [:show, :edit, :update, :destroy]
   before_action :authenticate, only: [:index, :show, :new, :edit, :create, :destroy]
-  
+
   def index
-    @apartments = current_agent.apartments
+    only_empty = params[:only_empty]
+    if only_empty
+      @apartments = current_agent.empty_apartments
+    else
+      @apartments = current_agent.apartments
+    end
   end
 
   def show
