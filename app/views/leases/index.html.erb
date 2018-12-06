@@ -1,7 +1,11 @@
-<h1>Your Leases</h1>
-<ul>
-<% @leases.each do |lease| %>
-  <li><%= link_to lease.tenant_name, lease %></li>
+<% if !@leases.empty? %>
+    <h1>Your Leases</h1>
+    <ul>
+      <% @leases.each do |lease| %>
+      <li><%= link_to lease.tenant_name, lease %></li>
+      <% end %>
+    </ul>
+    <%= link_to "Add Lease", new_lease_path %>
+<% else %>
+    <h1>You currently have no leases.</h1>
 <% end %>
-</ul>
-<%= link_to "Add Lease", new_lease_path %>

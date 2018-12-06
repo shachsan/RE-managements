@@ -1,5 +1,6 @@
 class BuildingsController < ApplicationController
   before_action :find_building, only:[:show, :update, :destroy, :edit]
+  before_action :authenticate, only: [:index, :show, :new, :edit, :create, :destroy]
 
   def index
     @buildings = current_agent.buildings
