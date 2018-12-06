@@ -1,6 +1,6 @@
 <h1>Apartments</h1>
 
-<% if @apartments %>
+<% if !@apartments.empty? %>
     <ul>
       <% @apartments.each do |apartment| %>
       <li><%= link_to apartment.name, apartment %></li>
