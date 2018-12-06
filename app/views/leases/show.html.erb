@@ -1,6 +1,7 @@
 <h1>Lease for <%= @lease.tenant_name %></h1>
 <%= @lease.start_date.strftime("Start %m/%d/%y") %><br>
 <%= @lease.exp_date.strftime("Ends %m/%d/%y") %><br>
+<%= @lease.apartment.info %>
 <hr>
 <%= link_to "Edit Lease", edit_lease_path(@lease), method: :get %>
 <%= link_to "Delete Lease", "/leases/#{@lease.id}", method: :delete %>

@@ -32,4 +32,8 @@ class Agent < ApplicationRecord
     apartments.where(lease_id: nil)
   end
 
+  def leases
+    Lease.all.select{|lease| lease.agent_id == self.id}
+  end
+
 end
