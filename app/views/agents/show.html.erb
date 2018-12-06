@@ -3,20 +3,21 @@
   <% if @agent.apartments %>
 
     <% @agent.apartments.each do |apt| %>
-
-        <div class="card-group">
-          <div class="card">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title"><%= apt.info %></h5>
-              <p class="card-text"><%= "#{apt.bedrooms} Bedroom Apartment" %></p>
-              <%= link_to "Show details", apt %>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          </div>
+    <!-- <a href= class=""> -->
+    <%= link_to apt do %>
+      <div class="card text-white bg-info mb-3 layout" style="max-width: 18rem;">
+        <div class="card-header layout-center-text header-text"><%= apt.building.name%></div>
+          <hr>
+          <div class="card-body">
+          <h5 class="card-title layout-center-text"><%= apt.info %></h5>
+          <hr>
+          <p class="card-text layout-center-text">Nice 2 bedrooms apts.    Must see!</p>
+        </div>
+      </div>
+      <% end %>
+    <!-- </a> -->
 
     <% end %>
   <% else %>
     <h2>You do not have any apartments yet. Please assign apartment to yourself.</h2>
-
   <% end %>

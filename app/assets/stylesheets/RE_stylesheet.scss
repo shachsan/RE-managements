@@ -18,3 +18,22 @@ $navbar-default-bg: #80ffe5;
   font-size: 1.2em;
   background-color: #33cccc;
 }
+
+.layout{
+  display: inline-block;
+  padding: 2px;
+  width: 220px;
+  margin: 5px 5px;
+  border: 1px solid #0099cc;
+}
+.layout-center-text{
+  text-align: center;
+}
+
+.header-text{
+  font-size: 12px;
+  font-weight: bold;
+}
+hr{
+  border-bottom: 1px solid #33cccc;
+}
