@@ -1,8 +1,8 @@
 <h1>Apartments</h1>
 
 <ul>
-  <% @apartments.each do |apartment| %>
-    <li><%= link_to apartment.info, apartment %></li>
+  <% @agent_apartments.each do |apartment| %>
+    <li><%= link_to apartment.name, apartment %></li>
   <% end %>
 </ul>
 
