@@ -4,7 +4,7 @@ class LeasesController < ApplicationController
 
   def index
     #@leases = current_agent.leases
-    @leases = Lease.all.select{|lease| lease.agent_id == current_agent.id}
+    @leases = current_agent.leases
   end
 
   def show
@@ -25,7 +25,7 @@ class LeasesController < ApplicationController
   end
 
   def edit
-    @apartments = Apartment.all
+    @apartments = current_agent.empty_apartments
   end
 
   def update
