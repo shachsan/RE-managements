@@ -9,9 +9,14 @@
         <div class="card-header layout-center-text header-text"><%= apt.building.name%></div>
           <hr>
           <div class="card-body">
-          <h5 class="card-title layout-center-text"><%= apt.info %></h5>
+          <h5 class="card-title layout-center-text"><%= "Apt #{apt.unit}" %></h5>
           <hr>
-          <p class="card-text layout-center-text">Nice 2 bedrooms apts.    Must see!</p>
+            <% if apt.lease_id %>
+              <div class="card-text layout-center-text bg-success rent_status">Rented</div>
+            <% else %>
+              <div class="card-text layout-center-text bg-danger rent_status">Not rented yet</div>
+            <% end %>
+          </div>
         </div>
       </div>
       <% end %>
