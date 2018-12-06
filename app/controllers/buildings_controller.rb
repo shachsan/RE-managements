@@ -2,7 +2,7 @@ class BuildingsController < ApplicationController
   before_action :find_building, only:[:show, :update, :destroy, :edit]
 
   def index
-    @buildings = Building.all
+    @buildings = current_agent.buildings
   end
 
   def new
