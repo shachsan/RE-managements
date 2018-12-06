@@ -1,10 +1,6 @@
 class AgentsController < ApplicationController
   before_action :find_agent, only: [:show, :update, :edit, :destroy]
 
-  def index
-    @agents = Agent.all
-  end
-
   def new
     @agent = Agent.new
   end

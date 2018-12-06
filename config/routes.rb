@@ -10,6 +10,6 @@ Rails.application.routes.draw do
 
   get 'signup', to: 'agents#new'
 
-  resources :agents, except: [:new]
+  resources :agents, except: [:new, :index]
 
 end
