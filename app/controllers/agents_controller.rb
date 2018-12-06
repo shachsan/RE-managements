@@ -1,10 +1,6 @@
 class AgentsController < ApplicationController
   before_action :find_agent, only: [:show, :update, :edit, :destroy]
 
-  def index
-    @agents = Agent.all
-  end
-
   def new
     @agent = Agent.new
   end
@@ -38,6 +34,6 @@ class AgentsController < ApplicationController
   end
 
   def find_agent
-    @agent = Agent.find(params[:id])
+    @agent = Agent.find(current_agent.id)
   end
 end
