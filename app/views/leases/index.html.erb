@@ -1,6 +1,5 @@
 <% if !@leases.empty? %>
     <h1>Your Leases</h1>
-    <% byebug %>
     <ul>
       <% @leases.each do |lease| %>
       <li><%= link_to lease.tenant_name, lease %></li>
