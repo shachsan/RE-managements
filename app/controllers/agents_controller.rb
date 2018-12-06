@@ -16,6 +16,7 @@ class AgentsController < ApplicationController
     @agent.email = @agent.email.downcase
     if @agent.save
       flash[:success]= "#{@agent.name}, welcome to RE-management!"
+      session[:user_id] = agent.id
       redirect_to @agent
     else
       render 'new'

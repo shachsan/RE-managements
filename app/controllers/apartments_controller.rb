@@ -3,7 +3,7 @@ class ApartmentsController < ApplicationController
   before_action :authenticate, only: [:index, :show, :new, :edit, :create, :destroy]
 
   def index
-    @apartments = Apartment.all
+    @apartments = current_agent.apartments
   end
 
   def show
