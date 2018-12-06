@@ -1,8 +1,8 @@
 class LeasesController < ApplicationController
   before_action :get_lease, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate, only: [:index, :show, :new, :edit, :create, :destroy]
   def index
-    @leases = Lease.all
+    @leases = current_agent.apartments.map(&:lease)
   end
 
   def show

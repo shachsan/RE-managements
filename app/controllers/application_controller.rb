@@ -36,7 +36,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate
-    redirect_to new_session_path unless logged_in?
+    redirect_to '/login' unless logged_in?
   end
 
 end
