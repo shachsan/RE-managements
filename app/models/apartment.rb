@@ -1,7 +1,7 @@
 class Apartment < ApplicationRecord
   belongs_to :building
-  belongs_to :agent
-  has_one :lease, dependent: :destroy  
+  belongs_to :agent, optional: :true
+  has_one :lease, dependent: :destroy
   has_many :images
 
   def info

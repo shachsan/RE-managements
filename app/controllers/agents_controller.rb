@@ -34,6 +34,6 @@ class AgentsController < ApplicationController
   end
 
   def find_agent
-    @agent = Agent.find(params[:id])
+    @agent = Agent.find(current_agent.id)
   end
 end

@@ -1,5 +1,6 @@
 class ApartmentsController < ApplicationController
   before_action :set_apartment, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate, only: [:index, :show, :new, :edit, :create, :destroy]
 
   def index
     @apartments = Apartment.all
@@ -23,6 +24,8 @@ class ApartmentsController < ApplicationController
 
   def create
     @apartment = Apartment.create!(apartment_params)
+    @apartment.agent_id = current_agent.id
+    @apartment.save
     redirect_to @apartment
 
   end

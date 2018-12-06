@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
   helper_method :current_agent, :logged_in?
+  before_action :setup_agent_stuff
+
+  private
 
   def current_agent
     @current_agent ||= Agent.find(session[:user_id]) if session[:user_id]
@@ -7,10 +10,6 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     !!current_agent
-  end
-
-  def log_in!(agent)
-    session[:user_id] = agent.id
   end
 
   def setup_agent_stuff
