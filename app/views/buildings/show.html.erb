@@ -2,6 +2,10 @@
 
 <h1><%= "#{@building.name}" %></h1>
 <h3><%= "#{@building.address}" %></h3>
+
+<% @apartments.each do |apartment| %>
+    <%= link_to apartment.name, apartment %><br>
+<% end %>
 <button type="button" name="button">
   <%= link_to "Edit", edit_building_path(@building) %>
   <%= link_to "Back", buildings_path %>
