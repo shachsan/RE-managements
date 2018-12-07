@@ -38,6 +38,7 @@ hr{
   border-bottom: 1px solid #33cccc;
 }
 body{
+
   background-image: url(/assets/background3.png);
   background-size:960px;
   // opacity: 0.5;
@@ -52,4 +53,7 @@ body{
 }
 .inputbox_bg{
   background-color: RGB(128, 255, 229);
+}
+.body_div{
+  padding-left: 10px;
 }

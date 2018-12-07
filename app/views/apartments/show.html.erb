@@ -1,3 +1,6 @@
+<div class="body_div">
+
+
 <h1>Apartment info</h1>
 <ul>
   <li>Name: <%= @apartment.name %></li>
@@ -15,3 +18,4 @@
 </ul>
 <%= link_to "Edit Apartment", edit_apartment_path(@apartment), class: "btn btn-primary" %>
 <%= link_to "Delete Apartment", "/apartments/#{@apartment.id}", method: :delete, class: "btn btn-danger" %>
+</div>

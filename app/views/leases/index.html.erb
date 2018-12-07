@@ -1,11 +1,13 @@
-<% if !@leases.empty? %>
-    <h1>Your Leases</h1>
-    <ul>
-      <% @leases.each do |lease| %>
-      <li><%= link_to lease.tenant_name, lease %></li>
-      <% end %>
-    </ul>
-    <%= button_to "Add Lease", new_lease_path, method: :get %>
-<% else %>
-    <h1>You currently have no leases.</h1>
-<% end %>
+<div class="body_div">
+  <% if !@leases.empty? %>
+      <h1>Your Leases</h1>
+      <ul>
+        <% @leases.each do |lease| %>
+        <li><%= link_to lease.tenant_name, lease %></li>
+        <% end %>
+      </ul>
+      <%= button_to "Add Lease", new_lease_path, class: "bg-success", method: :get %>
+  <% else %>
+      <h1>You currently have no leases.</h1>
+  <% end %>
+</div>

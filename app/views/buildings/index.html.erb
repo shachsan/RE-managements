@@ -1,7 +1,9 @@
-<h1>All Buildings</h1>
-<ul>
-<% @buildings.each do |building| %>
-  <li><%= link_to building.name, building %></li>
-  <% end %>
-</ul>
-<%= button_to "Add New Building", new_building_path, method: :get %>
+<div class="body_div">
+  <h1>All Buildings</h1>
+  <ul>
+  <% @buildings.each do |building| %>
+    <li><%= link_to building.name, building %></li>
+    <% end %>
+  </ul><br><br>
+  <%= button_to "Add New Building", new_building_path, class: "btn btn-primary", method: :get %>
+</div>
