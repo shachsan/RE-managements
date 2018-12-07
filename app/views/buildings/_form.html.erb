@@ -1,8 +1,10 @@
 <%= render 'layouts/errors', :object => @building %><br>
-<%= form_for @building do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-  <%= f.submit %>
-<% end %>
+<div class="body_div">
+  <%= form_for @building do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :address %>
+    <%= f.text_field :address %><br><br>
+    <%= f.submit class: "btn btn-success" %>
+  <% end %>
+</div>

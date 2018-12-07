@@ -1,7 +1,14 @@
-<h1>All Buildings</h1>
-<ul>
-<% @buildings.each do |building| %>
-  <li><%= link_to building.name, building %></li>
+<div class="body_div">
+  <h1>All Buildings</h1>
+
+  <% @buildings.each do |building| %>
+
+    <%= link_to building, class:"list-group-item list-group-item-action flex-column align-items-start" do%>
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1"><%= building.name%></h5>
+    </div>
+    <% end %>
   <% end %>
-</ul>
-<%= button_to "Add New Building", new_building_path, method: :get %>
+    <br><br>
+  <%= button_to "Add New Building", new_building_path, class: "btn btn-primary", method: :get %>
+</div>

@@ -1,11 +1,13 @@
-<%= form_for @lease do |t| %>
-  <%= t.label "Select a start date for the new lease." %><br>
-  <%= t.date_select(:start_date) %><br>
-  <%= t.label "Select an end date for the new lease." %><br>
-  <%= t.date_select(:exp_date) %><br>
-  <%= t.label "Name of tenant" %><br>
-  <%= t.text_field :tenant_name %><br>
-  <%= t.label "Select an apartment" %><br>
-  <%= t.collection_select :apartment_id, @apartments, :id, :name %><br>
-  <%= t.submit %>
-<% end %>
+<div class="body_div">
+  <%= form_for @lease do |t| %>
+    <%= t.label "Select a start date for the new lease." %><br>
+    <%= t.date_select(:start_date) %><br>
+    <%= t.label "Select an end date for the new lease." %><br>
+    <%= t.date_select(:exp_date) %><br>
+    <%= t.label "Name of tenant" %><br>
+    <%= t.text_field :tenant_name %><br>
+    <%= t.label "Select an apartment" %><br>
+    <%= t.collection_select :apartment_id, @apartments, :id, :name %><br><br>
+    <%= t.submit class: "bg-success"%>
+  <% end %>
+</div>

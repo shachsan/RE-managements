@@ -1,14 +1,16 @@
-<h1>Apartments</h1>
-  <% if @apartments %>
-    <% @apartments.each do |apartment| %>
-        <%= link_to apartment, class:"list-group-item list-group-item-action flex-column align-items-start" do%>
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1"><%= apartment.info %></h5>
-        </div>
-        <% end %>
-    <% end %>
-<% else %>
-    <h4>You have no apartments on this page</h4>
-<% end %><br>
+<div class="body_div">
+  <h1>Apartments</h1>
+    <% if @apartments %>
+      <% @apartments.each do |apartment| %>
+          <%= link_to apartment, class:"list-group-item list-group-item-action flex-column align-items-start" do%>
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1"><%= apartment.info %></h5>
+          </div>
+          <% end %>
+      <% end %>
+  <% else %>
+      <h4>You have no apartments on this page</h4>
+  <% end %><br><br>
 
-<%= button_to " New Apartment", new_apartment_path, class: "btn btn-info", method: :get %>
+  <%= button_to " New Apartment", new_apartment_path, class: "btn btn-info", method: :get %>
+</div>

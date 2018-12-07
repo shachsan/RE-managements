@@ -1,16 +1,17 @@
-<%=flash[:success] %>
+<%=flash[:success] %><br>
+<div class="body_div">
+  <h1><%= "#{@building.name}" %></h1>
+  <h3><%= "#{@building.address}" %></h3>
 
-<h1><%= "#{@building.name}" %></h1>
-<h3><%= "#{@building.address}" %></h3>
+  <% @apartments.each do |apartment| %>
+      <%= link_to apartment.name, apartment %><br>
+  <% end %>
+  <button type="button" name="button">
+    <%= link_to "Edit", edit_building_path(@building), class: "btn btn-primary" %>
+    <%= link_to "Back", buildings_path, class: "btn btn-primary" %>
+  </button><br>
 
-<% @apartments.each do |apartment| %>
-    <%= link_to apartment.name, apartment %><br>
-<% end %>
-<button type="button" name="button">
-  <%= link_to "Edit", edit_building_path(@building) %>
-  <%= link_to "Back", buildings_path %>
-</button><br>
-
-<button type="button" name="button">
-  <%= link_to "Delete", @building, :method => :delete, :confirm => "Are you sure ?" %>
-</button>
+  <button type="button" name="button">
+    <%= link_to "Delete", @building, class: "btn btn-danger", :method => :delete, :confirm => "Are you sure ?" %>
+  </button>
+</div>

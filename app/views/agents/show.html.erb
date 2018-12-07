@@ -1,30 +1,31 @@
-<span class="bg-success"><%=flash[:success]%></span>
-<h1><%= "Good #{@agent.greeting}, #{@agent.name}"%></h1>
-  <% if @agent.apartments %>
+<span class="bg-success"><%=flash[:success]%></span><br>
 
-    <% @agent.apartments.each do |apt| %>
-    <!-- <a href= class=""> -->
-    <%= link_to apt do %>
-      <div class="card text-white bg-info mb-3 layout" style="max-width: 18rem;">
-        <div class="card-header layout-center-text header-text"><%= apt.building.name%></div>
-          <hr>
-          <div class="card-body">
-          <h5 class="card-title layout-center-text"><%= "Apartment: #{apt.unit_no}"%></h5>
-          <h5 class="card-title layout-center-text"><%= "Bedroom: #{apt.bedrooms}"%></h5>
+  <h1 class="body_div"><%= "Good #{@agent.greeting}, #{@agent.name}"%></h1>
+    <% if @agent.apartments %>
 
-          <hr>
-            <% if apt.lease_id %>
-              <div class="card-text layout-center-text bg-success rent_status">Rented</div>
-            <% else %>
-              <div class="card-text layout-center-text bg-danger rent_status">Not rented yet</div>
-            <% end %>
+      <% @agent.apartments.each do |apt| %>
+      <!-- <a href= class=""> -->
+      <%= link_to apt do %>
+        <div class="card text-white bg-info mb-3 layout" style="max-width: 18rem;">
+          <div class="card-header layout-center-text header-text"><%= apt.building.name%></div>
+            <hr>
+            <div class="card-body">
+            <h5 class="card-title layout-center-text"><%= "Apartment: #{apt.unit_no}"%></h5>
+            <h5 class="card-title layout-center-text"><%= "Bedroom: #{apt.bedrooms}"%></h5>
+
+            <hr>
+              <% if apt.lease_id %>
+                <div class="card-text layout-center-text bg-success rent_status">Rented</div>
+              <% else %>
+                <div class="card-text layout-center-text bg-danger rent_status">Not rented yet</div>
+              <% end %>
+            </div>
           </div>
         </div>
-      </div>
-      <% end %>
-    <!-- </a> -->
+        <% end %>
+      <!-- </a> -->
 
+      <% end %>
+    <% else %>
+      <h2>You do not have any apartments yet. Please assign apartment to yourself.</h2>
     <% end %>
-  <% else %>
-    <h2>You do not have any apartments yet. Please assign apartment to yourself.</h2>
-  <% end %>

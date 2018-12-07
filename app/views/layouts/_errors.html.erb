@@ -1,6 +1,7 @@
-
+<div class="body_div">
   <% if object.errors.any? %>
     <%object.errors.full_messages.each do |msg| %>
       <%= msg %>
     <% end %>
   <% end %>
+</div>
