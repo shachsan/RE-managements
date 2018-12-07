@@ -1,6 +1,6 @@
 <span class="bg-success"><%=flash[:success]%></span><br>
-<div class="body_div">
-  <h1><%= "Good #{@agent.greeting}, #{@agent.name}"%></h1>
+
+  <h1 class="body_div"><%= "Good #{@agent.greeting}, #{@agent.name}"%></h1>
     <% if @agent.apartments %>
 
       <% @agent.apartments.each do |apt| %>
@@ -29,4 +29,3 @@
     <% else %>
       <h2>You do not have any apartments yet. Please assign apartment to yourself.</h2>
     <% end %>
-  </div>
