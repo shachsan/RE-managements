@@ -13,5 +13,5 @@
         <li>Water: <%= !!@apartment.water %></li>
   </ul>
 </ul>
-<%= link_to "Edit Apartment", edit_apartment_path(@apartment) %>
-<%= link_to "Delete Apartment", "/apartments/#{@apartment.id}", method: :delete %>
+<%= link_to "Edit Apartment", edit_apartment_path(@apartment), class: "btn btn-primary" %>
+<%= link_to "Delete Apartment", "/apartments/#{@apartment.id}", method: :delete, class: "btn btn-danger" %>

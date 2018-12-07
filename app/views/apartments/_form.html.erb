@@ -1,23 +1,23 @@
 
 
 <%= form_for @apartment do |t|%>
-  <%= t.label :name %>
-  <%= t.text_field :name %><br>
-  <%= t.label "Unit Number" %>
-  <%= t.text_field :unit_no %><br>
-  <%= t.label "Size (sqft)" %>
-  <%= t.number_field :size %><br>
-  <%= t.label '# of bedrooms' %>
-  <%= t.number_field :bedrooms %><br>
-  <%= t.label :rent %>
-  <%= t.number_field :rent %><br>
-  <%= t.label :electricity %>
-  <%= t.check_box :electricity %><br>
-  <%= t.label :water %>
+  <%= t.label :name, class:"lineup" %>
+  <%= t.text_field :name, class:"inputbox_bg" %><br>
+  <%= t.label "Unit Number", class:"lineup" %>
+  <%= t.text_field :unit_no, class:"inputbox_bg" %><br>
+  <%= t.label "Size (sqft)", class:"lineup" %>
+  <%= t.number_field :size, class:"inputbox_bg" %><br>
+  <%= t.label '# of bedrooms', class:"lineup" %>
+  <%= t.number_field :bedrooms, class:"inputbox_bg" %><br>
+  <%= t.label :rent, class:"lineup" %>
+  <%= t.number_field :rent, class:"inputbox_bg" %><br>
+  <%= t.label :electricity, class:"lineup" %>
+  <%= t.check_box :electricity%><br>
+  <%= t.label :water, class:"lineup" %>
   <%= t.check_box :water %><br>
-  <%= t.label :gas %>
+  <%= t.label :gas, class:"lineup" %>
   <%= t.check_box :gas %><br>
-  <%= t.label :Building %>
-  <%= t.collection_select :building_id, @buildings, :id, :name %><br>
-  <%= t.submit %>
+  <%= t.label :Building, class:"lineup" %>
+  <%= t.collection_select :building_id, @buildings, :id, :name %><br><br>
+  <%= t.submit class:"bg-success" %>
 <% end %>

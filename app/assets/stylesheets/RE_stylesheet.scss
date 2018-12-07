@@ -47,10 +47,9 @@ body{
   height: 20px;
 }
 
-div.transp {
-
-  background-color: #ffffff;
-
-  opacity: 0.6;
-  filter: alpha(opacity=60); /* For IE8 and earlier */
+.lineup{
+  width: 120px;
+}
+.inputbox_bg{
+  background-color: RGB(128, 255, 229);
 }
